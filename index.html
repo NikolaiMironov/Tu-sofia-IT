@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+  border: 1px red solid;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: grey;
+}
+img {
+  border: 1px black solid;
+  border-radius: 50%;
+  
+}
+</style>
+</head>
+<body>
+
+<p>Universities List</p>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..." title="Type in a name">
+<table id = "myTable">
+  <tr class = "header">
+  <th>University</th>
+  <th>Address</th>
+  <th>Postal code</th>
+  </tr>
+  <tr>
+  <td>TU</td>
+  <td>bul. Kliment Ohridski</td>
+  <td>1000</td>
+  </tr>
+  <tr>
+  <td>TU Plovdiv</td>
+  <td>Tsanko Dyustabanov str.</td>
+  <td>4000</td>
+  </tr>
+  <tr>
+  <td>TU Varna</td>
+  <td>Studentska str</td>
+  <td>9000</td>
+  </tr>
+  <tr>
+  <td>TU Sliven</td>
+  <td>Burgasko shose</td>
+  <td>8800</td>
+  </tr>
+</table>
+<img src="https://ianrmedia.unl.edu/images/resources/nilo-ren.jpg" alt="Avatar" style="width:500px">
+
+<p></p>
+<button onclick="promptMe()">Open converter Prompt</button>
+<p id="demo"></p>
+
+
+
+<script>
+function promptMe(){
+    var userInput = prompt("Please enter value for converting");
+    var miles = userInput * 1.6;
+    document.getElementById("demo").innerHTML = miles + " miles";
+
+}
+</script>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, cell, i, j;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    // Hide the row initially.
+    tr[i].style.display = "none";
+  
+    td = tr[i].getElementsByTagName("td");
+    for (var j = 0; j < td.length; j++) {
+      cell = tr[i].getElementsByTagName("td")[j];
+      if (cell) {
+        if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break;
+        } 
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
+
+
